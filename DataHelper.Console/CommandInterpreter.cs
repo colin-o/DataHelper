@@ -18,6 +18,9 @@ namespace DataHelper.Console
 
         public ICommand ReadCommand(string[] parts)
         {
+            if (parts == null || parts.Length == 0)
+                return new ExampleUsageCommand(_commandMap);
+
             string commandName = parts[0];
             string[] arguments = parts.Skip(1).ToArray();
             Type commandType = null;

@@ -9,6 +9,10 @@ namespace DataHelper.Console
     {
         void SetArguments(string[] args);
 
+        IOutput Out { set; }
+
         void Execute();
+
+        void ExplainUsage();
     }
 }

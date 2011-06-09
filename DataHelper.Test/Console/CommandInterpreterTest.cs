@@ -43,5 +43,18 @@ namespace DataHelper.Test.Console
             Assert.AreEqual(Settings.ServerName, typedCommand.ServerName);
             Assert.AreEqual(Settings.DatabaseName, typedCommand.DatabaseName);
         }
+
+        [TestMethod]
+        public void Should_Handle_Empty_Command()
+        {
+            // Given that I have a command interpreter ready
+            ICommandInterpreter interpreter = new CommandInterpreter();
+
+            // When I send an empty command
+            ICommand command = interpreter.ReadCommand(new string[] { });
+
+            // Then I should receive the ExampleUsage command
+            Assert.IsInstanceOfType(command, typeof(ExampleUsageCommand));
+        }
     }
 }

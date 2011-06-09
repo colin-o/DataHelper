@@ -11,5 +11,10 @@ namespace DataHelper.Console
         {
             throw new NotImplementedException();
         }
+
+        public override void ExplainUsage()
+        {
+            Out.Usage("pulldata <server name> <database name>");
+        }
     }
 }

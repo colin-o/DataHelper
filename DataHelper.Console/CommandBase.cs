@@ -11,6 +11,8 @@ namespace DataHelper.Console
 
         public string DatabaseName;
 
+        private IOutput _out;
+
         public virtual void SetArguments(string[] args)
         {
             this.ServerName = args[0];
@@ -18,5 +20,15 @@ namespace DataHelper.Console
         }
 
         public abstract void Execute();
+
+        public abstract void ExplainUsage();
+
+        public IOutput Out
+        {
+            set { _out = value; }
+            get { return _out; }
+        }
+
+
     }
 }

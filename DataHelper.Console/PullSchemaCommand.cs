@@ -9,7 +9,25 @@ namespace DataHelper.Console
     {
         public override void Execute()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(this.ServerName) || string.IsNullOrWhiteSpace(this.DatabaseName))
+            {
+                ExplainUsage();
+                return;
+            }
+
+            string schema = this.SchemaGenerator.GenerateSchemaFor(this.ServerName, this.DatabaseName);
+            this.FileManager.SaveFileToSchemaDirectory("schema.sql", schema);
+            string schemaPath = this.FileManager.SchemaDirectoryPath();
+            Out.Info(string.Format("Schema for {0} was written to {1}\\schema.sql", this.DatabaseName, schemaPath));
+        }
+
+        public Core.ISchemaGenerator SchemaGenerator { get; set; }
+
+        public IFileManager FileManager { get; set; }
+
+        public override void ExplainUsage()
+        {
+            Out.Usage("pullschema <server name> <database name>");
         }
     }
 }
