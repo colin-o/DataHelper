@@ -5,11 +5,11 @@ using System.Text;
 
 namespace DataHelper.Console
 {
-    public class CommandInterpreter : ICommandInterpreter
+    public class StandardCommandInterpreter : ICommandInterpreter
     {
         private static Dictionary<string, Type> _commandMap;
 
-        static CommandInterpreter()
+        static StandardCommandInterpreter()
         {
             _commandMap = new Dictionary<string, Type>();
             _commandMap.Add("pullschema", typeof(PullSchemaCommand));

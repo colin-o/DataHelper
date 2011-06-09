@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ninject;
 
 namespace DataHelper.Console
 {
@@ -11,7 +12,8 @@ namespace DataHelper.Console
 
         public string DatabaseName;
 
-        private IOutput _out;
+        [Inject]
+        public IOutput Out { get; set; }
 
         public virtual void SetArguments(string[] args)
         {
@@ -22,13 +24,6 @@ namespace DataHelper.Console
         public abstract void Execute();
 
         public abstract void ExplainUsage();
-
-        public IOutput Out
-        {
-            set { _out = value; }
-            get { return _out; }
-        }
-
 
     }
 }

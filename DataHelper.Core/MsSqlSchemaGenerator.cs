@@ -5,14 +5,14 @@ using Microsoft.SqlServer.Management.Smo;
 
 namespace DataHelper.Core
 {
-    public class SchemaGenerator : ISchemaGenerator
+    public class MsSqlSchemaGenerator : ISchemaGenerator
     {
         private Scripter script;
         private Server server;
         private Database database;
         private StringBuilder scriptBuilder;
 
-        public SchemaGenerator()
+        public MsSqlSchemaGenerator()
         {
         }
 
@@ -46,9 +46,16 @@ namespace DataHelper.Core
             script.Options.ScriptDrops = false;
             urns.Clear();
 
-            // Create database and tables
+            // Create database
             urns.Add(database.Urn);
+            AppendScriptsForObjects(urns);
+            urns.Clear();
 
+            // Use database
+            scriptBuilder.AppendFormat("USE [{0}]\r\n", databaseName);
+            scriptBuilder.AppendLine("GO");
+
+            // Create tables
             foreach (Table table in database.Tables)
                 urns.Add(table.Urn);
             AppendScriptsForObjects(urns);

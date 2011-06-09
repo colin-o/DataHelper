@@ -7,7 +7,7 @@ using Microsoft.SqlServer.Management.Sdk.Sfc;
 
 namespace DataHelper.Core
 {
-    public class DataDumper : IDataDumper
+    public class MsSqlDataDumper : IDataDumper
     {
         private string serverName;
         private string databaseName;
@@ -15,7 +15,7 @@ namespace DataHelper.Core
         private Server server;
         private Database database;
 
-        public DataDumper()
+        public MsSqlDataDumper()
         {
         }
 

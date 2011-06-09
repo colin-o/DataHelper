@@ -9,11 +9,9 @@ namespace DataHelper.Console
     {
         static void Main(string[] args)
         {
-            ICommandInterpreter interpreter = new CommandInterpreter();
+            ICommandInterpreter interpreter = Locator.Instance<ICommandInterpreter>();
             ICommand command = interpreter.ReadCommand(args);
-            IOutput output = new StandardOutput();
-
-            command.Out = output;
+            Locator.Inject(command);
             command.Execute();
         }
     }

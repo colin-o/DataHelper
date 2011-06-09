@@ -24,7 +24,7 @@ namespace DataHelper.Test
                 });
 
             // When I generate a schema script
-            ISchemaGenerator generator = new SchemaGenerator();
+            ISchemaGenerator generator = new MsSqlSchemaGenerator();
             string schema = generator.GenerateSchemaFor(server, database);
 
             // Then I should have a script that drops the database

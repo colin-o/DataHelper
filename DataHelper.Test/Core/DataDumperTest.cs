@@ -36,7 +36,7 @@ namespace DataHelper.Test.Core
             .AddRow("Mayzie", "Dog");
 
             // When I dump the data
-            IDataDumper dumper = new DataDumper();
+            IDataDumper dumper = new MsSqlDataDumper();
             List<InsertionScript> scripts = dumper.DumpTables(Test.Settings.ServerName, Test.Settings.DatabaseName);
 
             // I should get a data insertion script for each table

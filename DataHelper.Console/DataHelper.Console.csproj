@@ -11,7 +11,8 @@
     <RootNamespace>DataHelper.Console</RootNamespace>
     <AssemblyName>DataHelper.Console</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=2.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,24 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandBase.cs" />
-    <Compile Include="CommandInterpreter.cs" />
-    <Compile Include="ExampleUsageCommand.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="ICommandInterpreter.cs" />
-    <Compile Include="IFileManager.cs" />
-    <Compile Include="IOutput.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Services\StandardCommandInterpreter.cs" />
+    <Compile Include="Commands\ExampleUsageCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Services\ICommandInterpreter.cs" />
+    <Compile Include="Services\IFileManager.cs" />
+    <Compile Include="Services\IOutput.cs" />
+    <Compile Include="Locator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PullDataCommand.cs" />
-    <Compile Include="PullSchemaCommand.cs" />
-    <Compile Include="StandardOutput.cs" />
+    <Compile Include="Commands\PullDataCommand.cs" />
+    <Compile Include="Commands\PullSchemaCommand.cs" />
+    <Compile Include="Services\StandardFileManager.cs" />
+    <Compile Include="Services\StandardOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataHelper.Core\DataHelper.Core.csproj">
       <Project>{47A6E0B8-39B2-4696-AA5D-BDD1CA3D556E}</Project>
       <Name>DataHelper.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Lib\Ninject.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

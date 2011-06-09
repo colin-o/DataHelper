@@ -28,6 +28,7 @@ namespace DataHelper.Test.Console
             command.DatabaseName = "database";
 
             // When I execute the command
+            schemaGenerator.Setup(s => s.GenerateSchemaFor(It.IsAny<string>(), It.IsAny<string>())).Returns("script");
             command.Execute();
 
             // Then the schema script be saved to the correct location

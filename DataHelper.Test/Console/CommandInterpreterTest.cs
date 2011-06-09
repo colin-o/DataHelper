@@ -14,7 +14,7 @@ namespace DataHelper.Test.Console
         public void Should_Recognize_Pull_Schema_Command_With_Server_And_Database_Specified()
         {
             // Given that I have a command interpreter ready
-            ICommandInterpreter interpreter = new CommandInterpreter();
+            ICommandInterpreter interpreter = new StandardCommandInterpreter();
             
             // When I send the "pullschema" command with a server and database name
             ICommand command = interpreter.ReadCommand(new string[] { "pullschema", Test.Settings.ServerName, Test.Settings.DatabaseName });
@@ -31,7 +31,7 @@ namespace DataHelper.Test.Console
         public void Should_Recognize_Pull_Data_Command_With_Server_And_Database_Specified()
         {
             // Given that I have a command interpreter ready
-            ICommandInterpreter interpreter = new CommandInterpreter();
+            ICommandInterpreter interpreter = new StandardCommandInterpreter();
             
             // When I send the "pulldata" command with a server and database name
             ICommand command = interpreter.ReadCommand(new string[] { "pulldata", Test.Settings.ServerName, Test.Settings.DatabaseName });
@@ -48,7 +48,7 @@ namespace DataHelper.Test.Console
         public void Should_Handle_Empty_Command()
         {
             // Given that I have a command interpreter ready
-            ICommandInterpreter interpreter = new CommandInterpreter();
+            ICommandInterpreter interpreter = new StandardCommandInterpreter();
 
             // When I send an empty command
             ICommand command = interpreter.ReadCommand(new string[] { });

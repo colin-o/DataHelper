@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ninject;
 
 namespace DataHelper.Console
 {
     public class ExampleUsageCommand : ICommand
     {
-        private IOutput _out;
         private Dictionary<string, Type> _commandMap;
 
-        public IOutput Out
-        {
-            set { _out = value; }
-        }
+        [Inject]
+        public IOutput Out { get; set; }
 
         public void SetArguments(string[] args) { }
 
@@ -29,12 +27,12 @@ namespace DataHelper.Console
             foreach (Type type in _commandMap.Values)
             {
                 ICommand command = Activator.CreateInstance(type) as ICommand;
-                command.Out = _out;
+                command.Out = Out;
                 command.ExplainUsage();
 
-                _out.Write("");
-                _out.Write("------------------------------------------------------------");
-                _out.Write("");
+                Out.Write("");
+                Out.Write("------------------------------------------------------------");
+                Out.Write("");
             }
         }
     }
