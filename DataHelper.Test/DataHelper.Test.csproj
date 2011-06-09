@@ -55,6 +55,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\CommandInterpreterTest.cs" />
     <Compile Include="Core\DataDumperTest.cs" />
     <Compile Include="Core\SchemaGeneratorTest.cs" />
     <Compile Include="Test Helpers\ColumnHelper.cs" />
@@ -64,6 +65,10 @@
     <Compile Include="Test Helpers\TableHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataHelper.Console\DataHelper.Console.csproj">
+      <Project>{5198F0BE-02E5-426D-A247-13D78D09D3B4}</Project>
+      <Name>DataHelper.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataHelper.Core\DataHelper.Core.csproj">
       <Project>{47A6E0B8-39B2-4696-AA5D-BDD1CA3D556E}</Project>
       <Name>DataHelper.Core</Name>
