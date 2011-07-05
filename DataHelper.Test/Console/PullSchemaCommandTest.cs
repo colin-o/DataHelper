@@ -18,7 +18,7 @@ namespace DataHelper.Test.Console
             // Given that I have a pull schema command
             PullSchemaCommand command = new PullSchemaCommand();
             var fileManager = new Mock<IFileManager>();
-            var schemaGenerator = new Mock<ISchemaGenerator>();
+            var schemaGenerator = new Mock<ISchemaManager>();
             var output = new Mock<IOutput>();
             command.SchemaGenerator = schemaGenerator.Object;
             command.FileManager = fileManager.Object;
@@ -44,7 +44,7 @@ namespace DataHelper.Test.Console
             // Given that I have a pull schema command
             PullSchemaCommand command = new PullSchemaCommand();
             var fileManager = new Mock<IFileManager>();
-            var schemaGenerator = new Mock<ISchemaGenerator>();
+            var schemaGenerator = new Mock<ISchemaManager>();
             var output = new Mock<IOutput>();
             command.SchemaGenerator = schemaGenerator.Object;
             command.FileManager = fileManager.Object;

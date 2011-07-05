@@ -61,8 +61,8 @@
   <ItemGroup>
     <Compile Include="Console\CommandInterpreterTest.cs" />
     <Compile Include="Console\PullSchemaCommandTest.cs" />
-    <Compile Include="Core\DataDumperTest.cs" />
-    <Compile Include="Core\SchemaGeneratorTest.cs" />
+    <Compile Include="Core\DataManagerTest.cs" />
+    <Compile Include="Core\SchemaManagerTest.cs" />
     <Compile Include="Test Helpers\ColumnHelper.cs" />
     <Compile Include="Test Helpers\DatabaseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

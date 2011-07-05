@@ -18,8 +18,8 @@ namespace DataHelper.Console
                 Bind<IOutput>().To<StandardOutput>();
                 Bind<ICommandInterpreter>().To<StandardCommandInterpreter>();
 
-                Bind<IDataDumper>().To<MsSqlDataDumper>();
-                Bind<ISchemaGenerator>().To<MsSqlSchemaGenerator>();
+                Bind<IDataManager>().To<MsSqlDataManager>();
+                Bind<ISchemaManager>().To<MsSqlSchemaManager>();
             }
         }
 

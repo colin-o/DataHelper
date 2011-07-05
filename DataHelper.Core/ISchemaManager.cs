@@ -1,7 +1,7 @@
 ﻿
 namespace DataHelper.Core
 {
-    public interface ISchemaGenerator
+    public interface ISchemaManager
     {
         string GenerateSchemaFor(string server, string database);
     }

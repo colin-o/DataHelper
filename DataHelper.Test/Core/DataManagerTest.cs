@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DataHelper.Test.Core
 {
     [TestClass]
-    public class DataDumperTest
+    public class DataManagerTest
     {
         [TestMethod]
         public void Should_Dump_Table_Data_To_Separate_Scripts()
@@ -36,7 +36,7 @@ namespace DataHelper.Test.Core
             .AddRow("Mayzie", "Dog");
 
             // When I dump the data
-            IDataDumper dumper = new MsSqlDataDumper();
+            IDataManager dumper = new MsSqlDataManager();
             List<InsertionScript> scripts = dumper.DumpTables(Test.Settings.ServerName, Test.Settings.DatabaseName);
 
             // I should get a data insertion script for each table

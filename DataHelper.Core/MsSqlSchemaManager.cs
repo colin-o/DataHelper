@@ -5,14 +5,14 @@ using Microsoft.SqlServer.Management.Smo;
 
 namespace DataHelper.Core
 {
-    public class MsSqlSchemaGenerator : ISchemaGenerator
+    public class MsSqlSchemaManager : ISchemaManager
     {
         private Scripter script;
         private Server server;
         private Database database;
         private StringBuilder scriptBuilder;
 
-        public MsSqlSchemaGenerator()
+        public MsSqlSchemaManager()
         {
         }
 

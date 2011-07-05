@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataHelper.Core
 {
-    public interface IDataDumper
+    public interface IDataManager
     {
         List<InsertionScript> DumpTables(string serverName, string databaseName);
     }

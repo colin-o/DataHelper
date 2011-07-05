@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DataHelper.Test
 {
     [TestClass()]
-    public class SchemaGeneratorTest
+    public class SchemaManagerTest
     {
         [TestMethod()]
         public void Should_Generate_Schema_For_Database()
@@ -24,7 +24,7 @@ namespace DataHelper.Test
                 });
 
             // When I generate a schema script
-            ISchemaGenerator generator = new MsSqlSchemaGenerator();
+            ISchemaManager generator = new MsSqlSchemaManager();
             string schema = generator.GenerateSchemaFor(server, database);
 
             // Then I should have a script that drops the database
@@ -36,6 +36,16 @@ namespace DataHelper.Test
             // With two columns
             StringAssert.Contains(schema, "[Column1] [int] IDENTITY(1,1) NOT NULL");
             StringAssert.Matches(schema, new Regex(@"\[Column2\] \[varchar\]\(50\) .* NULL"));
+        }
+
+        [TestMethod()]
+        public void Should_Load_Schema_For_Database()
+        {
+            // Given that I have a server name and database name
+            string server = Test.Settings.ServerName;
+            string database = Test.Settings.DatabaseName;
+            // And I have a schema script
+            string schemaScript = null;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace DataHelper.Console
     public class PullSchemaCommand : CommandBase
     {
         [Inject]
-        public ISchemaGenerator SchemaGenerator { get; set; }
+        public ISchemaManager SchemaGenerator { get; set; }
 
         [Inject]
         public IFileManager FileManager { get; set; }
